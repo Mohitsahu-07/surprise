@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="particles-container"></div>
+  
+  <div id="intro-screen" class="intro-screen">
+    <div class="intro-content">
+      <div class="name-banner">
+        <div class="name-wrapper">
+          <span class="name">Rishika</span>
+          <div class="name-decoration"></div>
+        </div>
+      </div>
+      <div class="birthday-message">
+        <h1 class="main-title">
+          <span class="title-line">It's Your</span>
+          <span class="title-line highlight">Special Day!</span>
+        </h1>
+        <p class="subtitle">Let's make it magical ✨</p>
+      </div>
+      <div class="interactive-elements">
+        <div class="element-circle">
+          <span class="element">🎂</span>
+          <span class="element">🎁</span>
+          <span class="element">🎈</span>
+          <span class="element">🎊</span>
+          <span class="element">💖</span>
+          <span class="element">✨</span>
+        </div>
+      </div>
+      <div class="start-section">
+        <div class="start-message">
+          <p>Ready for your birthday surprise?</p>
+        </div>
+        <button id="start-btn" class="start-button">
+          <span class="button-text">Begin Journey</span>
+          <span class="button-icon">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-content" class="birthday-container" style="display: none;">
+    <div class="title-container">
+      <h1 class="main-title">
+        <span class="title-word">🎂Happy</span>
+        <span class="title-word">Birthday</span>
+        <span class="title-word">Rishika!🎂</span>
+      </h1>
+    </div>
+    <section class="slideshow-container">
+      <div class="slideshow" aria-label="Birthday Memories Slideshow">
+        <img src="./rish/1.jpg" class="slide" alt="Memory 1" />
+        <img src="./rish/2.jpg" class="slide" alt="Memory 2" />
+        <img src="./rish/3.jpg" class="slide" alt="Memory 3" />
+        <img src="./rish/4.jpg" class="slide" alt="Memory 4" />
+        <img src="./rish/5.jpg" class="slide" alt="Memory 5" />
+        <img src="./rish/6.jpg" class="slide" alt="Memory 6" />
+        <img src="./rish/7.jpg" class="slide" alt="Memory 7" />
+        <img src="./rish/8.jpg" class="slide" alt="Memory 8" />
+        <img src="./rish/9.jpg" class="slide" alt="Memory 9" />
+        <img src="./rish/10.jpg" class="slide" alt="Memory 10" />
+        <img src="./rish/11.jpg" class="slide" alt="Memory 11" />
+        <img src="./rish/12.jpg" class="slide" alt="Memory 12" />
+        <img src="./rish/13.jpg" class="slide" alt="Memory 13" />
+        <img src="./rish/14.jpg" class="slide" alt="Memory 14" />
+      </div>
+      <div class="slideshow-controls">
+        <button class="control-btn prev-btn">❮</button>
+        <button class="control-btn next-btn">❯</button>
+      </div>
+    </section>
+    <div class="message-card">
+      <p class="caption">
+        You're not just my best friend, you're my sunshine, my smile, my happy place. On your special day, I just want to say: you are amazing, beautiful, and truly one of a kind. Keep shining, birthday girl! 💖🌟
+      </p>
+    </div>
+  </div>
+
+  <div id="ending-screen" class="ending-screen" style="display: none;">
+    <div class="ending-content">
+      <div class="name-banner">
+        <div class="name-wrapper">
+          <span class="name">Rishika</span>
+          <div class="name-decoration"></div>
+        </div>
+      </div>
+      <div class="birthday-message">
+        <h1 class="main-title">
+          <span class="title-line">Thank You for</span>
+          <span class="title-line highlight">Being My Best Friend!</span>
+        </h1>
+        <p class="subtitle">May all your dreams come true ✨</p>
+      </div>
+      <div class="interactive-elements">
+        <div class="element-circle">
+          <span class="element">💝</span>
+          <span class="element">💖</span>
+          <span class="element">💕</span>
+          <span class="element">💗</span>
+          <span class="element">✨</span>
+          <span class="element">🌟</span>
+        </div>
+      </div>
+      <div class="start-section">
+        <button id="restart-btn" class="start-button">
+          <span class="button-text">Celebrate Again</span>
+          <span class="button-icon">↺</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="birthday-audio" src="./audio/Finding Her(KoshalWorld.Com).mp3" loop></audio>
+  <button id="mute-toggle" class="music-toggle" aria-label="Toggle Music">🔊</button>
+</body>
+</html>

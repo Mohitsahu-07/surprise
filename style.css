@@ -1,0 +1,353 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Particles */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatParticle 20s infinite linear;
+}
+
+/* Centering for all screens */
+.intro-screen, .ending-screen {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 1;
+  overflow: hidden;
+}
+.intro-content, .ending-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  max-width: 90%;
+  width: 600px;
+  animation: fadeIn 1s ease;
+}
+
+/* Main Content Centering */
+.birthday-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Name Banner */
+.name-banner { margin-bottom: 40px; }
+.name-wrapper { position: relative; display: inline-block; }
+.name {
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: glowText 2s infinite alternate;
+}
+.name-decoration {
+  position: absolute;
+  bottom: -10px; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, #ff9a9e, transparent);
+  animation: slideIn 1s ease;
+}
+
+/* Titles and Subtitles */
+.birthday-message { margin-bottom: 40px; }
+.main-title { font-size: 3rem; margin: 0; line-height: 1.2; }
+.title-line { display: block; opacity: 0; transform: translateY(20px); animation: slideUp 0.5s ease forwards; }
+.title-line:nth-child(2) { animation-delay: 0.2s; }
+.highlight { color: #ff9a9e; font-weight: 700; }
+.subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-top: 20px; opacity: 0; animation: fadeIn 0.5s ease forwards 0.4s; }
+
+/* Interactive Elements */
+.interactive-elements { margin: 40px 0; }
+.element-circle { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.element { font-size: 2.5rem; cursor: pointer; transition: transform 0.3s ease; animation: floatElement 3s infinite ease-in-out; }
+.element:hover { transform: scale(1.2) rotate(10deg); }
+
+/* Start/Restart Button */
+.start-section { margin-top: 40px; }
+.start-message { margin-bottom: 20px; opacity: 0; animation: fadeIn 0.5s ease forwards 0.6s; }
+.start-button {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.start-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 154, 158, 0.4); }
+.button-text { position: relative; z-index: 1; }
+.button-icon { position: relative; z-index: 1; transition: transform 0.3s ease; }
+.start-button:hover .button-icon { transform: translateX(5px); }
+
+/* Slideshow */
+.slideshow-container {
+  position: relative;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 800px;
+}
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #000;
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  object-fit: contain;
+  background: #000;
+}
+.slide.active { opacity: 1; }
+.slideshow-controls {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+.control-btn {
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+.control-btn:hover { transform: scale(1.1); background: rgba(255,255,255,1); }
+
+/* Message Card */
+.message-card {
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 40px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s ease;
+}
+.message-card:hover { transform: translateY(-5px); }
+.caption { font-size: 1.2rem; line-height: 1.6; color: #fff; margin: 0; }
+
+/* Music Toggle */
+.music-toggle {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.music-toggle:hover { transform: scale(1.1); background: rgba(255,255,255,0.2); }
+
+/* Animations */
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-100px) translateX(50px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+@keyframes glowText {
+  0% { text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+  100% { text-shadow: 0 0 30px rgba(255,255,255,0.6); }
+}
+@keyframes slideIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+  100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.8)); }
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .intro-content, .ending-content {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .element {
+    font-size: 2rem;
+  }
+
+  .start-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .slideshow {
+    height: 300px;
+  }
+
+  .control-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .message-card {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .element-circle {
+    gap: 15px;
+  }
+
+  .element {
+    font-size: 1.8rem;
+  }
+
+  .slideshow {
+    height: 250px;
+  }
+
+  .control-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Fix for touch devices */
+@media (hover: none) {
+  .element:hover,
+  .start-button:hover,
+  .message-card:hover,
+  .music-toggle:hover {
+    transform: none;
+  }
+
+  .control-btn:hover {
+    transform: none;
+    background: rgba(255,255,255,0.8);
+  }
+}
+
+/* Prevent text size adjustment on mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Improve touch targets */
+button, 
+.control-btn,
+.music-toggle {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Fix for iOS safe areas */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: min(0vmin, env(safe-area-inset-left));
+    padding-right: min(0vmin, env(safe-area-inset-right));
+    padding-bottom: min(0vmin, env(safe-area-inset-bottom));
+  }
+}
