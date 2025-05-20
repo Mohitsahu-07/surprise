@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   initializeParticles();
   initializeIntroScreen();
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeEndingScreen();
 });
 
-// --- PARTICLES ---
 function initializeParticles() {
   const container = document.querySelector('.particles-container');
   for (let i = 0; i < 50; i++) {
@@ -23,7 +21,6 @@ function createParticle(container) {
   container.appendChild(particle);
 }
 
-// --- INTRO SCREEN ---
 function initializeIntroScreen() {
   const elements = document.querySelectorAll('#intro-screen .element');
   const startBtn = document.getElementById('start-btn');
@@ -49,7 +46,6 @@ function initializeIntroScreen() {
   });
 }
 
-// --- MAIN CONTENT (SLIDESHOW) ---
 function initializeMainContent() {
   const slides = document.querySelectorAll('.slide');
   let currentSlide = 0;
@@ -85,15 +81,13 @@ function initializeMainContent() {
   if (slides.length > 0) {
     showSlide(0);
     startSlideshow();
-  }
+  } 
 
-  // Sparkle on message card hover
   const messageCard = document.querySelector('.message-card');
   messageCard.addEventListener('mouseover', () => {
     createSparkle(messageCard);
   });
 
-  // Music mute toggle
   const muteToggle = document.getElementById('mute-toggle');
   muteToggle.addEventListener('click', () => {
     const audio = document.getElementById('birthday-audio');
@@ -101,7 +95,6 @@ function initializeMainContent() {
     muteToggle.textContent = audio.muted ? '🔇' : '🔊';
   });
 
-  // Sparkle on mouse move
   document.addEventListener('mousemove', (e) => {
     if (Math.random() < 0.1) {
       createSparkle(null, e.clientX, e.clientY);
@@ -116,7 +109,6 @@ function initializeMainContent() {
   });
 }
 
-// --- ENDING SCREEN ---
 function initializeEndingScreen() {
   const elements = document.querySelectorAll('#ending-screen .element');
   const restartBtn = document.getElementById('restart-btn');
@@ -139,7 +131,6 @@ function initializeEndingScreen() {
   });
 }
 
-// --- EFFECTS ---
 function createSparkle(element, x, y) {
   const sparkle = document.createElement('div');
   sparkle.className = 'sparkle';
@@ -191,7 +182,6 @@ function animateElements(elements) {
   });
 }
 
-// --- SCREEN TRANSITIONS ---
 function transitionToMain() {
   const introScreen = document.getElementById('intro-screen');
   const mainContent = document.getElementById('main-content');
