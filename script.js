@@ -101,7 +101,6 @@ function initializeMainContent() {
     }
   });
 
-  // Show ending screen after last slide
   slides[slides.length - 1].addEventListener('transitionend', () => {
     if (currentSlide === slides.length - 1) {
       setTimeout(showEndingScreen, 2000);
